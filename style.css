@@ -154,3 +154,36 @@ label {
 #playlist p:hover {
     color: #666;
 }
+#emoji-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Para ocultar emojis que se desborden */
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes emojiRain {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+#emoji-rain span {
+    position: absolute;
+    left: 0;
+    font-size: 2em; /* Tamaño más grande */
+    animation: emojiRain 5s linear infinite, rotate 2s linear infinite; /* Animaciones de la lluvia y rotación */
+}

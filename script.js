@@ -5,6 +5,7 @@ const createPlaylistButton = document.getElementById("create-playlist-button");
 const playlistDiv = document.getElementById("playlist");
 const slider = document.getElementById("emotion-slider");
 const sliderValue = document.getElementById("slider-value");
+
 slider.addEventListener("input", function() {
     sliderValue.textContent = this.value;
 });
@@ -58,7 +59,6 @@ createPlaylistButton.addEventListener("click", function() {
             (song.Polaridad >= selectedPolarity - 0.3 && song.Polaridad <= selectedPolarity + 0.3) &&
             song.Artista !== "David Allan Coe" &&
             song.Artista !== "Horrible Histories"
-        
         );
 
         const uniqueArtists = new Set();
@@ -108,8 +108,37 @@ createPlaylistButton.addEventListener("click", function() {
         }
 
         playlistDiv.style.display = "block"; // Mostrar el div de la playlist después de crear la lista
+
+        // Limpiar el contenedor de emojis antes de agregar los nuevos
+        const emojiRainContainer = document.getElementById("emoji-rain");
+        emojiRainContainer.innerHTML = "";
+
+        // Crear una lluvia de emojis con el emoji correspondiente a la emoción seleccionada
+        const emojiMap = {
+            joy: "&#x1F604;", // Emoji de carita sonriente
+            anger: "&#x1F621;", // Emoji de carita con cejas fruncidas
+            sadness: "&#x1F622;", // Emoji de carita llorando
+            fear: "&#x1F628;", // Emoji de carita asustada
+            love: "&#x1F60D;", // Emoji de carita con corazones en los ojos
+            surprise: "&#x1F631;" // Emoji de carita sorprendida
+        };
+        const selectedEmoji = emojiMap[selectedEmotion];
+        for (let i = 0; i < 30; i++) {
+            setTimeout(() => {
+                const emoji = document.createElement("span");
+                emoji.innerHTML = selectedEmoji;
+                emoji.style.position = "absolute";
+                emoji.style.left = Math.random() * 100 + "vw";
+                emoji.style.animation = "emojiRain 5s linear infinite";
+                emojiRainContainer.appendChild(emoji);
+                setTimeout(() => {
+                    emoji.remove();
+                }, 5000); // Eliminar el emoji después de 5 segundos
+            }, Math.random() * 5000); // Crear un nuevo emoji cada 0-5 segundos
+        }
     });
 });
+
 
 function getRandomElements(arr, n) {
     const shuffled = arr.sort(() => 0.5 - Math.random());
