@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Spotify Mood Playlist Maker</title>
+</head>
+<body>
+    <div class="card">
+        <label for="emotion-select">Emotion:</label>
+        <select name="emotion" id="emotion-select">
+            <option value="">Selecciona una emoción</option>
+            <option value="joy">Joy</option>
+            <option value="anger">Anger</option>
+            <option value="sadness">Sadness</option>
+            <option value="fear">Fear</option>
+            <option value="love">Love</option>
+            <option value="surprise">Surprise</option>
+        </select>
+        
+        <div id="slider-container" style="display: none;">
+            <label for="emotion-slider">Positividad de la canción:</label>
+            <input type="range" min="-0.5" max="0.65" step="0.1" value="0" id="emotion-slider">
+            <span id="slider-value">0</span>
+            <p id="slider-description"></p>
+        </div>
+        
+        <div id="genre-container" style="display: none;">
+            <label for="genre-select">Género:</label>
+            <select name="genre" id="genre-select">
+                <option value="">Selecciona un género</option>
+                <option value="pop">Pop</option>
+                <option value="folk">Folk</option>
+                <option value="jazz">Jazz</option>
+                <option value="progressive">Progressive</option>
+                <option value="metal">Metal</option>
+                <option value="alternative">Alternative</option>
+                <option value="electronic">Electronic</option>
+                <option value="christian">Christian</option>
+                <option value="opera">Opera</option>
+                <option value="world">World</option>
+                <option value="hip-hop">Hip Hop</option>
+                <option value="rap">Rap</option>
+                <option value="comedy">Comedy</option>
+                <option value="soul">Soul</option>
+                <option value="xmas">Christmas</option>
+                <option value="soundtrack">Soundtrack</option>
+                <option value="reggae">Reggae</option>
+                <option value="classic rock">Classic Rock</option>
+            </select>
+        </div>
+
+        <button id="create-playlist-button" style="display: none;">Crear Playlist</button>
+
+        <div id="playlist"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
