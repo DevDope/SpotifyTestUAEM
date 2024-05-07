@@ -1,0 +1,286 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2e2c2c;
+  }
+  
+  .container {
+    width: 50%;
+    height: 50%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .question {
+    width: 93%; /* Tamaño fijo del contenedor de la pregunta */
+    height: 100%; /* Tamaño fijo del contenedor de la pregunta */
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #f9754b;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+  }
+  
+  .options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  button {
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: 0;
+    background-color: hwb(0 33% 67%);
+    letter-spacing: 1.5px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-shadow: rgb(0, 0, 0) 0px 10px 0px 0px;
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+    margin-right: 2%;
+    margin-top: 5%;
+  }
+  
+  button:hover {
+    box-shadow: rgb(223, 105, 37) 0px 7px 0px 0px;
+  }
+  
+  button:active {
+    background-color: rgb(255, 152, 56);
+    /*50, 168, 80*/
+    box-shadow: rgb(80, 80, 80) 0px 0px 0px 0px;
+    transform: translateY(5px);
+    transition: 200ms;
+  }
+  
+  .options button:hover {
+    background-color: #2e2c2c;
+  }
+  
+  .result {
+    width: 530px; /* Tamaño fijo del contenedor de resultado */
+    height: 410px; /* Tamaño fijo del contenedor de resultado */
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  input[type="radio"] {
+    background-color: transparent;
+    border: .0625em solid rgba(99, 98, 98, 0.5);
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 0 rgb(153, 235, 167);
+    cursor: pointer;
+    font: inherit;
+    outline: none;
+    height: 4em;
+    width: 4em;
+    font-size: 15px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    &:checked {
+      background-color: rgb(255, 255, 255);
+      box-shadow: inset 0 0 0 .3em #47d1da;
+      -webkit-transition: background .15s, box-shadow .1s; 
+      transition: background .15s, box-shadow .1s; 
+    }
+  }
+  
+  strong {
+    display: block;
+    font-size: .5em;
+    line-height: 3em;
+  }
+  
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Coloca el fondo detrás del contenido */
+    overflow: hidden;
+  }
+  
+  .background .glowing {
+    position: absolute;
+    min-width: 700px;
+    height: 550px;
+    margin: -150px;
+    transform-origin: right;
+    animation: colorChange 5s linear infinite;
+  }
+  
+  .background .glowing:nth-child(even) {
+    transform-origin: left;
+  }
+  .glowing:nth-child(even) {
+    transform-origin: left;
+  }
+  
+  @keyframes colorChange {
+    0% {
+      filter: hue-rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  
+  .glowing span {
+    position: absolute;
+    top: calc(80px * var(--i));
+    left: calc(80px * var(--i));
+    bottom: calc(80px * var(--i));
+    right: calc(80px * var(--i));
+  }
+  
+  .glowing span::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -8px;
+    width: 15px;
+    height: 15px;
+    background: #f00;
+    border-radius: 50%;
+  }
+  
+  .glowing span:nth-child(3n + 1)::before {
+    background: rgba(134,255,0,1);
+    box-shadow: 0 0 20px rgba(134,255,0,1),
+      0 0 40px rgba(134,255,0,1),
+      0 0 60px rgba(134,255,0,1),
+      0 0 80px rgba(134,255,0,1),
+      0 0 0 8px rgba(134,255,0,.1);
+  }
+  
+  .glowing span:nth-child(3n + 2)::before {
+    background: rgba(255,214,0,1);
+    box-shadow: 0 0 20px rgba(255,214,0,1),
+      0 0 40px rgba(255,214,0,1),
+      0 0 60px rgba(255,214,0,1),
+      0 0 80px rgba(255,214,0,1),
+      0 0 0 8px rgba(255,214,0,.1);
+  }
+  
+  .glowing span:nth-child(3n + 3)::before {
+    background: rgba(0,226,255,1);
+    box-shadow: 0 0 20px rgba(0,226,255,1),
+      0 0 40px rgba(0,226,255,1),
+      0 0 60px rgba(0,226,255,1),
+      0 0 80px rgba(0,226,255,1),
+      0 0 0 8px rgba(0,226,255,.1);
+  }
+  
+  .glowing span:nth-child(3n + 1) {
+    animation: animate 10s alternate infinite;
+  }
+  
+  .glowing span:nth-child(3n + 2) {
+    animation: animate-reverse 3s alternate infinite;
+  }
+  
+  .glowing span:nth-child(3n + 3) {
+    animation: animate 8s alternate infinite; 
+  }
+  
+  @keyframes animate {
+    0% {
+      transform: rotate(180deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes animate-reverse {
+    0% {
+      transform: rotate(360deg);
+    }
+    
+    50% {
+      transform: rotate(180deg);
+    }
+    
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  @media screen and (max-width: 600px) {
+    body {
+      font-size: 14px; /* Cambiar el tamaño de la fuente */
+    }
+  
+    .container {
+      width: 80%; /* Cambiar el ancho del contenedor */
+      min-height: 82%;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    /* Ajustar el tamaño de los botones */
+    button {
+      padding: 10px 10px;
+      font-size: 16px;
+      margin-right: 6%;
+      margin-top: 5%;
+    }
+  
+    /* Ajustar el tamaño de los botones radio */
+    input[type="radio"] {
+      height: 6em;
+      width: 6em;
+      margin-right: 10%;
+    }
+
+    .result{
+      width: 100%;
+      min-height: 82%;
+    }
+    .result h2 {
+      font-size: 30px; /* Tamaño inicial del título */
+      color: #333; /* Color del texto */
+      animation: scaleText 0.5s ease-in-out infinite alternate; /* Animación para hacer que el texto cambie de tamaño */
+    }
+    
+    .result li {
+      font-size: 18px; /* Tamaño de los elementos de la lista */
+    }
+    
+    /* Animación para hacer que el texto cambie de tamaño */
+    @keyframes scaleText {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+    /* Otros ajustes de diseño responsivo */
+    /* Agrega aquí reglas adicionales según sea necesario */
+  }

@@ -1,64 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Spotify Mood Playlist Maker</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playlist Quiz</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div id="emoji-rain" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"></div>
+  <div class="background">
+    <div class="glowing">
+    
+      <span style="--i:1;"></span>
+      
+      <span style="--i:2;"></span>
+      
+      <span style="--i:3;"></span>
+      
+    </div>
+    
+    <div class="glowing">
+      
+      <span style="--i:1;"></span>
+      
+      <span style="--i:2;"></span>
+      
+      <span style="--i:3;"></span>
+      
+    </div>
+    
+    <div class="glowing">
+      
+      <span style="--i:1;"></span>
+      
+      <span style="--i:2;"></span>
+      
+      <span style="--i:3;"></span>
+      
+    </div>
+    
+    <div class="glowing">
+      
+      <span style="--i:1;"></span>
+      
+      <span style="--i:2;"></span>
+      
+      <span style="--i:3;"></span>
+      
+    </div>
+  </div>
+  <div class="container">
+    <div class="question" id="question1">
+      <h2>Quiero una playlist para ?</h2>
+      <div class="options">
+        <button onclick="setMood(8)">❤️ Un día de amor</button>
+        <button onclick="setMood(9)">😔 Un día triste</button>
+        <button onclick="setMood(10)">😱 Un día de sorpresas</button>
+        <button onclick="setMood(11)">😠 Un día de enojo</button>
+        <button onclick="setMood(12)">😄 Un día alegre</button>
+        <button onclick="setMood(2)">😍 Para dedicar a mi crush</button>
+        <button onclick="setMood(3)">💃 Para Bailar</button>
+        <button onclick="setMood(4)">😌 Descansar</button>
+        <button onclick="setMood(5)">🤬 Gritarle al universo</button>
+        <button onclick="setMood(6)">🏋️‍♂️ Para el Gym</button>
+        <button onclick="setMood(7)">😢 Llorar bajo la lluvia</button>
+       
+      </div>
+    </div>
 
-    <div class="card">
-        <label for="emotion-select">Emotion:</label>
-        <select name="emotion" id="emotion-select">
-            <option value="">Selecciona una emoción</option>
-            <option value="joy">Alegria</option>
-            <option value="anger">Enojo</option>
-            <option value="sadness">Tristeza</option>
-            <option value="fear">Miedo</option>
-            <option value="love">Amor</option>
-            <option value="surprise">Sorpresa</option>
-        </select>
-        
-        <div id="slider-container" style="display: none;">
-            <label for="emotion-slider">Positividad de la canción:</label>
-            <input type="range" min="-0.5" max="0.65" step="0.1" value="0" id="emotion-slider">
-            <span id="slider-value">0</span>
-            <p id="slider-description"></p>
-        </div>
-        
-        <div id="genre-container" style="display: none;">
-            <label for="genre-select">Género:</label>
-            <select name="genre" id="genre-select">
-                <option value="">Selecciona un género</option>
-                <option value="pop">Pop</option>
-                <option value="rock">Rock</option>
-                <option value="folk">Folk</option>
-                <option value="jazz">Jazz</option>
-                <option value="progressive">Progressive</option>
-                <option value="metal">Metal</option>
-                <option value="alternative">Alternative</option>
-                <option value="electronic">Electronic</option>
-                <option value="christian">Christian</option>
-                <option value="opera">Opera</option>
-                <option value="world">World</option>
-                <option value="hip-hop">Hip Hop</option>
-                <option value="rap">Rap</option>
-                <option value="comedy">Comedy</option>
-                <option value="soul">Soul</option>
-                <option value="xmas">Christmas</option>
-                <option value="soundtrack">Soundtrack</option>
-                <option value="reggae">Reggae</option>
-                <option value="classic rock">Classic Rock</option>
-            </select>
-        </div>
+    <div class="question" id="question2" style="display: none;">
+      <h2>De qué género?</h2>
+      <div class="options">
+        <button class="b1" onclick="setGenre('rock')">Rock 🎸</button>
+        <button class="b2" onclick="setGenre('pop')">Pop 🎤</button>
+        <button class="b3" onclick="setGenre('metal')">Metal 🤘</button>
+        <button class="b4" onclick="setGenre('folk')">Folk 🌿</button>
+        <button class="b5" onclick="setGenre('jazz')">Jazz 🎷</button>
+        <button class="b6" onclick="setGenre('progressive')">Progressivo 🎵</button>
+        <button class="b7" onclick="setGenre('alternative')">Alternativo 🎸</button>
+        <button class="b8" onclick="setGenre('electronic')">Electronica e Indie 🎧</button>
+        <button class="b9" onclick="setGenre('christian')">Cristiana ✝️</button>
+        <button class="b10" onclick="setGenre('world')">Del mundo 🌍</button>
+        <button class="b11" onclick="setGenre('hip-hop')">Hip-hop 🎤</button>
+        <button class="b12" onclick="setGenre('rap')">Rap 🎤</button>
+        <button class="b13" onclick="setGenre('comedy')">Comedia 🤣</button>
+        <button class="b14" onclick="setGenre('soul')">Soul 🎶</button>
+        <button class="b15" onclick="setGenre('xmas')">Navideña 🎄</button>
+        <!-- <button class="b16" onclick="setGenre('K-pop')">K-pop 🇰🇷</button> -->
+        <button class="b17" onclick="setGenre('soundtrack')">Soundtrack 🎬</button>
+        <button class="b18" onclick="setGenre('reggae')">Reggae 🌴</button>
+        <!-- <button class="b19" onclick="setGenre('Trap')">Trap 🔊</button> -->
+      </div>
+    </div>
 
-        <button id="create-playlist-button" style="display: none;">Crear Playlist</button>
+      <div class="result" id="result" style="display: none;">
+        <h2>Tu playlist es 😄:</h2>
+        <p id="resultText"></p>
+        <ul id="resultList">
+          <li>1. Canción 1 - Artista 1</li>
+          <li>2. Canción 2 - Artista 2</li>
+          <li>3. Canción 3 - Artista 3</li>
+          <li>4. Canción 4 - Artista 4</li>
+          <li>5. Canción 5 - Artista 5</li>
+          <li>6. Canción 6 - Artista 6</li>
+          <li>7. Canción 7 - Artista 7</li>
+          <li>8. Canción 8 - Artista 8</li>
+          <li>9. Canción 9 - Artista 9</li>
+          <li>10. Canción 10 - Artista 10</li>
+        </ul> 
+        <button onclick="resetQuiz()">Intentar de nuevo</button>
+        <button onclick="window.open('https://forms.gle/tmxbLWzu7EeAeqh17', '_blank')">Calificar el Playlist</button>
 
-        <div id="playlist"></div>
+      </div>
     </div>
     
     <script src="script.js"></script>
-</body>
-</html>
+  </body>
+  </html>
+
