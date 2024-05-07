@@ -231,7 +231,7 @@ function getRandomSongs(mood, mood2, genre) {
           let link = '';
           if (isMobile) {
               // Si está en un dispositivo móvil, crear un enlace a la app de YouTube
-              link = `youtube://www.youtube.com/results?search_query=${encodeURIComponent(songs[newIndex])}+letra+en+español`;
+              link = `https://www.youtube.com/results?search_query=${encodeURIComponent(songs[newIndex])}+letra+en+español`;
           } else {
               // Si está en una computadora, crear un enlace a la versión web de YouTube
               link = `https://www.youtube.com/results?search_query=${encodeURIComponent(songs[newIndex])}+letra+en+español`;
