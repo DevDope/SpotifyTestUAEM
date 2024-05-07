@@ -237,7 +237,7 @@ function getRandomSongs(mood, mood2, genre) {
               link = `https://www.youtube.com/results?search_query=${encodeURIComponent(songs[newIndex])}+letra+en+español`;
           }
       
-          return `<li><a href="${link}" target="_blank">${songs[newIndex]}</a></li>`;
+          return `<li><a href="${link}">${songs[newIndex]}</a></li>`;
       }).join('');
 document.getElementById('result').style.display = 'block';
 document.querySelectorAll('.question').forEach(question => {
