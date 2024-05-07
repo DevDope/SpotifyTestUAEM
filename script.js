@@ -230,19 +230,19 @@ function getRandomSongs(mood, mood2, genre) {
           const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
           let link = '';
           if (isMobile) {
-              // Si está en un dispositivo móvil, crear un enlace para abrir la aplicación de YouTube
-              link = `youtube://search?q=${encodeURIComponent(songs[newIndex])} letra en español`;
+              // Si está en un dispositivo móvil, crear un enlace a la app de YouTube
+              link = `https://www.youtube.com/results?search_query=${encodeURIComponent(songs[newIndex])}+letra+en+español`;
           } else {
               // Si está en una computadora, crear un enlace a la versión web de YouTube
               link = `https://www.youtube.com/results?search_query=${encodeURIComponent(songs[newIndex])}+letra+en+español`;
           }
       
-          return `<li><a href="${link}">${songs[newIndex]}</a></li>`;
+          return `<li><a href="${link}" target="_blank">${songs[newIndex]}</a></li>`;
       }).join('');
-      document.getElementById('result').style.display = 'block';
-      document.querySelectorAll('.question').forEach(question => {
-          question.style.display = 'none';
-      });
+document.getElementById('result').style.display = 'block';
+document.querySelectorAll('.question').forEach(question => {
+    question.style.display = 'none';
+});
     })
     .catch(error => console.error('Error:', error));
     
